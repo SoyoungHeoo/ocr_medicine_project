@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block contents %}
+<div class="row" style="margin-top: 40px;">
+    <div class="ocr_imgbox col" id="ocr_imgbox">
+        <img src='{{ img_path }}' id="myCanvas">
+    </div>
+    <div class="col" id="all_info">
+        <div class="pill_menu">
+        </div>
+        <div class="box_info">
+        </div>
+    </div>
+</div>
+{% endblock%}
+{% block js %}
+<script src="{% static 'bs/js/getinfo.js' %}"></script>
+{% endblock %}

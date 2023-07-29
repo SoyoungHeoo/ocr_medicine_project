@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% load static %}
+
+
+{% block contents %}
+<div class="loader"></div>
+<div class="row ocr_title">
+    <h3>{{ title }}</h3>
+    <p>{{ content }}</p>
+</div>
+<div class="row">
+    <div class="ocr_imgbox col" id="ocr_imgbox">
+        <video id="myVideo"></video>
+    </div>
+    <div class="col" id="all_info">
+        
+    </div>
+</div>
+<div class="row">
+    <div class="btn_group">
+        <input type="file" name="uploadfile" id="img" style="display:none;" accept="image/*" class="upload"/>
+        <label for="img" class="btn me-2 upload">파일업로드</label>
+        <a id="submit_btn" class="btn me-2">캡쳐하기</a>
+        <a class="btn me-2" id="ocr_start">분석하기</a>
+        <a class="btn btn_gray" id="retry_btn" onclick="{restart()}">다시하기</a>
+    </div>
+</div>
+<form method="POST" name="frm" action="/registMedicine/">
+    {% csrf_token %}
+    <input type="hidden" class="regist_p_id" name="p_id" id="p_id"/>
+    <input type="hidden" class="regist_names" name="names" id="names"/>
+</form>
+{% endblock %}
